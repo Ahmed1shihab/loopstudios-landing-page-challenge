@@ -1,0 +1,170 @@
+@use "../utils" as *;
+
+.container {
+  height: 100vh;
+  background: #333 url(../../../images/desktop/image-hero.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $white;
+  padding: 60px;
+
+  @include breakpoint-down(small) {
+    background-image: url(../../../images/mobile/image-hero.jpg);
+    padding: 50px 30px;
+  }
+
+  @include breakpoint-down(xsmall) {
+    padding: 10px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div.humburger {
+      display: none;
+    }
+
+    @include breakpoint-down(small) {
+      div.humburger {
+        display: block;
+        cursor: pointer;
+
+        span {
+          display: block;
+          width: 20px;
+          height: 2px;
+          background-color: #ffffff;
+          transition: transform 0.2s ease;
+
+          &:last-of-type {
+            margin-top: 4px;
+          }
+          &:first-of-type {
+            margin-bottom: 4px;
+          }
+        }
+      }
+      &.active {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        padding: 50px 30px;
+
+        div.humburger {
+          position: absolute;
+          top: 63px;
+          right: 30px;
+
+          span {
+            transform-origin: 6px 1px;
+
+            &:first-of-type {
+              transform: rotate(45deg);
+            }
+
+            &:nth-of-type(2) {
+              display: none;
+            }
+
+            &:last-of-type {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+
+        nav {
+          display: block;
+          font-size: 18px;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          margin-top: 150px;
+
+          ul {
+            flex-direction: column;
+
+            li:not(:last-of-type) {
+              margin-right: 0px;
+              margin-bottom: 30px;
+            }
+
+            a:hover::after {
+              transform: scaleX(0);
+            }
+          }
+        }
+      }
+    }
+
+    nav {
+      @include breakpoint-down(small) {
+        display: none;
+      }
+      ul {
+        display: flex;
+
+        li {
+          position: relative;
+
+          &:not(:last-of-type) {
+            margin-right: 30px;
+          }
+        }
+
+        a {
+          transition: transform 0.3s ease-in-out;
+
+          &::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 32px;
+            height: 2px;
+            background-color: $white;
+            transition: transform 0.3s ease-in-out;
+          }
+
+          &:hover::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(1);
+            width: 32px;
+            height: 2px;
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  &__hero_text {
+    display: inline-block;
+    border: 1px solid $white;
+    font-size: 55px;
+    text-transform: uppercase;
+    margin-top: 130px;
+    padding: 40px 130px 40px 40px;
+
+    @include breakpoint-down(small) {
+      font-size: 40px;
+      margin-bottom: 280px;
+      padding: 35px 50px 35px 35px;
+    }
+
+    @include breakpoint-down(xsmall) {
+      font-size: 36px;
+      padding: 10px 10px 15px 10px;
+    }
+  }
+}
