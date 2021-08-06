@@ -21,7 +21,7 @@ a:active {
   color: inherit;
 }
 
-footer .brand_nav__nav ul a::after, footer .brand_nav__nav ul a:hover::after, footer .social_copyright img::after, footer .social_copyright img:hover::after, .container header nav ul a::after, .container header nav ul a:hover::after {
+footer .brand_nav__nav ul a::after, footer .brand_nav__nav ul a:hover::after, footer .social_copyright__images span::after, footer .social_copyright__images img:hover + span::after, .container header nav ul a::after, .container header nav ul a:hover::after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -415,19 +415,6 @@ footer .social_copyright p, footer .brand_nav__nav {
   margin-top: 35px;
 }
 
-footer .social_copyright img:hover::after, footer .social_copyright img::after, footer .brand_nav__nav ul a:hover::after, footer .brand_nav__nav ul a::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  width: 32px;
-  height: 2px;
-  background-color: white;
-  transition: all 0.2s ease-in-out;
-}
-
 footer {
   display: flex;
   justify-content: space-between;
@@ -496,15 +483,21 @@ footer .brand_nav__nav ul a:hover::after {
     margin-top: 30px;
   }
 }
-footer .social_copyright img {
+footer .social_copyright__images span {
   position: relative;
+  right: 12px;
+}
+footer .social_copyright__images span:not(:last-of-type) {
+  right: 36px;
+}
+footer .social_copyright__images img {
+  cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
-footer .social_copyright img:hover::after {
+footer .social_copyright__images img:hover + span::after {
   transform: translateX(-50%) scaleX(1);
-  border: 1px solid white;
 }
-footer .social_copyright img:not(:last-of-type) {
+footer .social_copyright__images img:not(:last-of-type) {
   margin-right: 20px;
 }
 footer .social_copyright p {
