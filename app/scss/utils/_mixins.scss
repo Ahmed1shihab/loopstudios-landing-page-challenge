@@ -1,0 +1,46 @@
+@use "breakpoins" as *;
+@use "colors" as c;
+
+%link {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 32px;
+  height: 2px;
+  background-color: c.$white;
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin nav_style {
+  ul {
+    display: flex;
+
+    li {
+      position: relative;
+
+      &:not(:last-of-type) {
+        margin-right: 30px;
+
+        @include breakpoint-down(medium) {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    a {
+      transition: transform 0.3s ease-in-out;
+
+      &::after {
+        @extend %link;
+      }
+
+      &:hover::after {
+        @extend %link;
+        transform: translateX(-50%) scaleX(1);
+      }
+    }
+  }
+}

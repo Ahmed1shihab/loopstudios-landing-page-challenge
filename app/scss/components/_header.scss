@@ -8,6 +8,9 @@
   color: $white;
   padding: 60px;
 
+  @include breakpoint-down(medium) {
+    padding: 40px;
+  }
   @include breakpoint-down(small) {
     background-image: url(../../../images/mobile/image-hero.jpg);
     padding: 50px 30px;
@@ -81,7 +84,6 @@
         nav {
           display: block;
           font-size: 18px;
-          text-transform: uppercase;
           letter-spacing: 3px;
           margin-top: 150px;
 
@@ -102,64 +104,73 @@
     }
 
     nav {
+      @include nav_style;
       @include breakpoint-down(small) {
         display: none;
       }
-      ul {
-        display: flex;
-
-        li {
-          position: relative;
-
-          &:not(:last-of-type) {
-            margin-right: 30px;
-          }
-        }
-
-        a {
-          transition: transform 0.3s ease-in-out;
-
-          &::after {
-            content: "";
-            display: inline-block;
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%) scaleX(0);
-            width: 32px;
-            height: 2px;
-            background-color: $white;
-            transition: transform 0.3s ease-in-out;
-          }
-
-          &:hover::after {
-            content: "";
-            display: inline-block;
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%) scaleX(1);
-            width: 32px;
-            height: 2px;
-            background-color: $white;
-          }
-        }
-      }
     }
+
+    // nav {
+    // @include breakpoint-down(small) {
+    //   display: none;
+    // }
+    //   ul {
+    //     display: flex;
+
+    //     li {
+    //       position: relative;
+
+    //       &:not(:last-of-type) {
+    //         margin-right: 30px;
+
+    //         @include breakpoint-down(medium) {
+    //           margin-right: 20px;
+    //         }
+    //       }
+    //     }
+
+    //     a {
+    //       transition: transform 0.3s ease-in-out;
+
+    //       %link {
+    //         content: "";
+    //         display: inline-block;
+    //         position: absolute;
+    //         bottom: -5px;
+    //         left: 50%;
+    //         transform: translateX(-50%) scaleX(0);
+    //         width: 32px;
+    //         height: 2px;
+    //         background-color: $white;
+    //         transition: transform 0.3s ease-in-out;
+    //       }
+
+    //       &::after {
+    //         @extend %link;
+    //       }
+
+    //       &:hover::after {
+    //         @extend %link;
+    //         transform: translateX(-50%) scaleX(1);
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   &__hero_text {
     display: inline-block;
     border: 1px solid $white;
     font-size: 55px;
-    text-transform: uppercase;
     margin-top: 130px;
     padding: 40px 130px 40px 40px;
 
     @include breakpoint-down(small) {
+      width: 100%;
       font-size: 40px;
+      line-height: 1.2;
       margin-bottom: 280px;
-      padding: 35px 50px 35px 35px;
+      padding: 40px 0px 40px 20px;
     }
 
     @include breakpoint-down(xsmall) {

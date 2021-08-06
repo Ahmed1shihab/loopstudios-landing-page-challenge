@@ -1,0 +1,101 @@
+@use "../utils" as *;
+
+%margin-top {
+  margin-top: 35px;
+}
+
+%link {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 32px;
+  height: 2px;
+  background-color: $white;
+  transition: all 0.2s ease-in-out;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: $black;
+  color: $white;
+  margin-top: 11.25rem;
+  padding: 50px 160px;
+
+  @include breakpoint-down(xmedium) {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+  }
+
+  @include breakpoint-down(xsmall) {
+    padding: 10px;
+    padding-top: 20px;
+  }
+
+  & .brand_nav {
+    @include breakpoint-down(xmedium) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__nav {
+      @include nav_style;
+      @extend %margin-top;
+
+      @include breakpoint-down(small) {
+        ul {
+          flex-direction: column;
+          align-items: center;
+
+          li {
+            margin-right: 0 !important;
+
+            &:not(:last-of-type) {
+              margin-bottom: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .social_copyright {
+    @include breakpoint-down(xmedium) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+    img {
+      position: relative;
+      transition: transform 0.3s ease-in-out;
+
+      &::after {
+        @extend %link;
+      }
+
+      &:hover::after {
+        @extend %link;
+        transform: translateX(-50%) scaleX(1);
+        border: 1px solid white;
+      }
+
+      &:not(:last-of-type) {
+        margin-right: 20px;
+      }
+    }
+
+    p {
+      @extend %margin-top;
+      color: $darkGray;
+
+      @include breakpoint-down(xsmall) {
+        font-size: 13px;
+      }
+    }
+  }
+}

@@ -1,7 +1,19 @@
+@use "../utils" as *;
+
 .f-josefin {
   font-family: "Josefin Sans", sans-serif;
 }
 
 .f-alata {
   font-family: "Alata", sans-serif;
+}
+
+.f-upper {
+  text-transform: uppercase;
+}
+
+@include breakpoint-down(small) {
+  .hide-mobile {
+    display: none;
+  }
 }
