@@ -53,7 +53,7 @@ footer .brand_nav__nav ul a::after, footer .brand_nav__nav ul a:hover::after, fo
 }
 .container {
   height: 100vh;
-  background: #333 url(../../../images/desktop/image-hero.jpg);
+  background: #333 url(../images/desktop/image-hero.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
@@ -66,7 +66,7 @@ footer .brand_nav__nav ul a::after, footer .brand_nav__nav ul a:hover::after, fo
 }
 @media (max-width: 39.9375rem) {
   .container {
-    background-image: url(../../../images/mobile/image-hero.jpg);
+    background-image: url(../images/mobile/image-hero.jpg);
     padding: 50px 30px;
   }
 }
@@ -347,7 +347,7 @@ footer .brand_nav__nav ul a::after, footer .brand_nav__nav ul a:hover::after, fo
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
-  row-gap: 70px;
+  gap: 70px 20px;
   overflow: hidden;
   color: white;
 }
@@ -490,11 +490,15 @@ footer .social_copyright__images span {
 footer .social_copyright__images span:not(:last-of-type) {
   right: 36px;
 }
+footer .social_copyright__images span::after {
+  width: 20px;
+}
 footer .social_copyright__images img {
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 footer .social_copyright__images img:hover + span::after {
+  width: 20px;
   transform: translateX(-50%) scaleX(1);
 }
 footer .social_copyright__images img:not(:last-of-type) {
