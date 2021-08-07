@@ -109,53 +109,6 @@
         display: none;
       }
     }
-
-    // nav {
-    // @include breakpoint-down(small) {
-    //   display: none;
-    // }
-    //   ul {
-    //     display: flex;
-
-    //     li {
-    //       position: relative;
-
-    //       &:not(:last-of-type) {
-    //         margin-right: 30px;
-
-    //         @include breakpoint-down(medium) {
-    //           margin-right: 20px;
-    //         }
-    //       }
-    //     }
-
-    //     a {
-    //       transition: transform 0.3s ease-in-out;
-
-    //       %link {
-    //         content: "";
-    //         display: inline-block;
-    //         position: absolute;
-    //         bottom: -5px;
-    //         left: 50%;
-    //         transform: translateX(-50%) scaleX(0);
-    //         width: 32px;
-    //         height: 2px;
-    //         background-color: $white;
-    //         transition: transform 0.3s ease-in-out;
-    //       }
-
-    //       &::after {
-    //         @extend %link;
-    //       }
-
-    //       &:hover::after {
-    //         @extend %link;
-    //         transform: translateX(-50%) scaleX(1);
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   &__hero_text {
